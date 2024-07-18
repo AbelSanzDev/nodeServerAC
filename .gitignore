@@ -1,3 +1,5 @@
 .env
 
 key/
+
+node_modules/
