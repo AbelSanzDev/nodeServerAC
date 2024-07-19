@@ -4,8 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "tsnd --respawn --clear src/app.ts",
-    "prebuild": "chmod -R 755 ./dist || true",
-    "build": "npm run prebuild && rimraf ./dist && tsc",
+    "build": "rimraf ./dist && tsc",
     "start": "npm run build && node dist/app.js"
   },
   "keywords": [],
