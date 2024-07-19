@@ -10,14 +10,13 @@ COPY package*.json ./
 # Instalar las dependencias
 RUN npm install
 
-# Copiar el resto de la aplicación
-COPY . .
 
 # Construir la aplicación
 RUN npm run build
 
-# Exponer el puerto que la aplicación usará
-EXPOSE 3000
+RUN npm run start
+
+
 
 # Comando para ejecutar la aplicación
 CMD ["node", "dist/app.js"]

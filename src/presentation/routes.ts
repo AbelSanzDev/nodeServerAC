@@ -11,6 +11,7 @@ export class AppRoutes{
     static get routes():Router{
         const router = Router();
         
+        //*Se estan definiedo las rutas de todos con el middleware
         router.use('/api/todos',TodoRoutes.routes);
         return router;
     }
