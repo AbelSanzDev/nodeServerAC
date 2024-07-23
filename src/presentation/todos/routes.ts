@@ -1,5 +1,7 @@
 import { Router } from "express";
 import { TodosController } from "./controller";
+import { TodoDatasourceImpl } from "../../infrastructure/datasource/todo.datasourse.impl";
+import { TodoRepositoryImpl } from "../../infrastructure/datasource/repositories/todo.repository";
 
 
 
@@ -9,7 +11,9 @@ export class TodoRoutes{
     //*se comporte como una propiedad y se pueda llamar sin la necesidad de utiliza parentesis ()
     static get routes():Router{
         const router = Router();
-        const todoController = new TodosController();
+        const datasource = new TodoDatasourceImpl();
+        const todoRepositoty = new TodoRepositoryImpl(datasource)
+        const todoController = new TodosController(todoRepositoty);
         
         router.get('/',(req,res)=>todoController.getTodos(req,res));
         router.post('/',(req,res)=>todoController.createTodo(req,res));
