@@ -2,7 +2,7 @@ import { Request, Response } from "express"
 import { prisma } from "../../data/postgresData";
 import { CreateTodoDto } from "../../domain/dtos";
 import { CreateTodo, DeleteTodo, GetTodo, GetTodos, TodoRepository } from "../../domain";
-import { error } from "console";
+
 
 
 export class TodosController{
